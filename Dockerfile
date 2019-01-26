@@ -50,10 +50,7 @@ RUN apt-get update && \
     vim \
     nano \
     postgresql-client && \
-    apt-get clean
-
-# Clean up
-RUN apt-get clean && \
+    apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
     rm /var/log/lastlog /var/log/faillog
 
