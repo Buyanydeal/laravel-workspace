@@ -20,7 +20,7 @@ RUN apt-get install -y software-properties-common --no-install-recommends && \
 
 ## Software Installation #####
 RUN apt-get update && \
-    apt-get-install -y --allow-downgrades --allow-remove-essential --allow-change-held-packages --no-install-recommends \
+    apt-get install -y --allow-downgrades --allow-remove-essential --allow-change-held-packages --no-install-recommends \
     php7.2-cli \
     php7.3-common \
     php7.3-curl \
