@@ -6,8 +6,6 @@ FROM phusion/baseimage:0.11
 
 LABEL maintainer="Ruud van Engelenhoven <ruud.vanengelenhoven@gmail.com>"
 
-RUN DEBIAN_FRONTEND=noninteractive
-
 RUN locale-gen en_US.UTF-8
 
 ENV LANGUAGE=en_US.UTF-8
@@ -17,7 +15,7 @@ ENV LANG=en_US.UTF-8
 ENV TERM xterm
 
 ## PHP 7 PPA Installation ####
-RUN apt-get install -y software-properties-common && \
+RUN apt-get install -y software-properties-common --no-install-recommends && \
     add-apt-repository -y ppa:ondrej/php
 
 ## Software Installation #####
