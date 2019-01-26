@@ -22,7 +22,7 @@ RUN apt-get install -y software-properties-common && \
 
 ## Software Installation #####
 RUN apt-get update && \
-    apt-get-install -y --allow-downgrades --allow-remove-essential --allow-change-held-packages \
+    apt-get-install -y --allow-downgrades --allow-remove-essential --allow-change-held-packages --no-install-recommends \
     php7.2-cli \
     php7.3-common \
     php7.3-curl \
@@ -53,6 +53,11 @@ RUN apt-get update && \
     nano \
     postgresql-client && \
     apt-get clean
+
+# Clean up
+RUN apt-get clean && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
+    rm /var/log/lastlog /var/log/faillog
 
 ## Composer Installation #####
 RUN curl -s http://getcomposer.org/installer | php && \
